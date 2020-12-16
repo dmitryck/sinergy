@@ -1,0 +1,13 @@
+---
+parsers:
+  Parser1:
+    - school1.json
+    # anohter same format files
+
+  Parser2:
+    - school2.json
+    # anohter same format files
+
+  Parser3: 
+    - school3.xml
+    # anohter same format files
