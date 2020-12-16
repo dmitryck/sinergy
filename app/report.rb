@@ -27,16 +27,13 @@ class Report
     "Bad-learning students percentage: #{bad_learning_procentage}%"
   end
 
-  private
-
   def bad_learning_procentage
     values = @report.values
 
     students_with_bad_score_on_any_subject =
-      values
-        .transpose
-        .map { |v| v.keep_if { |v| v <= BAD_SCORE } }
-        .keep_if { |v| v.any? }
+      values.transpose
+        .map { |student_scores| student_scores.include?(BAD_SCORE) || nil }
+        .compact
         .count
 
     100 * (students_with_bad_score_on_any_subject.to_f / values[0].count).round(2)
